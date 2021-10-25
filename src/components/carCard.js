@@ -1,13 +1,28 @@
-import React from 'react'
+import { useNavigation } from '@react-navigation/core'
+import React, { useEffect } from 'react'
 import {
     Image,
     View,
     Text,
-    StyleSheet
+    StyleSheet,
+    TouchableOpacity,
+    Pressable,
+    BackHandler
 } from 'react-native'
+// navigation.navigate("CarDetails")
+
+const TouchableCarCard = (WrappedComponent) => (props) => {
+    const navigation = useNavigation()
+
+    return <Pressable onPress={() => navigation.navigate("CarDetails")}>
+        <WrappedComponent {...props}/>
+    </Pressable>
+
+}
 
 export const CarCard = () => {
     return (
+
         <View style={styles.card}>
             <View>
                 <View style={styles.carDetails}>
@@ -43,6 +58,8 @@ export const CarCard = () => {
         </View>
     )
 }
+
+export const Car = TouchableCarCard(CarCard)
 
 const styles = StyleSheet.create({
     card: {

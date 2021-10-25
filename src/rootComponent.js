@@ -12,9 +12,34 @@ import {
     Text,
     Provider as PaperProvider
 } from 'react-native-paper'
+import CarDetails from './components/carDetails'
+import AccountInformation from './components/account/Information'
+import AccountOrders from './components/account/Orders'
+
+
 
 const Stack = createNativeStackNavigator()
 const Tab = createMaterialBottomTabNavigator();
+
+export const CarStack = () => {
+    return <Stack.Navigator
+    initialRouteName="CarList"
+    screenOptions={{ headerShown: false }}>
+        <Stack.Screen name='CarList' component={VehiclesPage}/>
+        <Stack.Screen name='CarDetails' component={CarDetails}/>
+    </Stack.Navigator>
+}
+
+export const AccountStack = () => {
+    return <Stack.Navigator
+    initialRouteName="AccountMain"
+    screenOptions={{ headerShown: false }}
+    >
+        <Stack.Screen name='AccountMain' component={AccountPage}/>
+        <Stack.Screen name='AccountInformation' component={AccountInformation}/>
+        <Stack.Screen name='AccountOrders' component={AccountOrders}/>
+    </Stack.Navigator>
+}
 
 const theme = {
     ...DefaultTheme,
@@ -27,9 +52,8 @@ const theme = {
 }
 
 const RootComponent = () => {
-
     const isAuthenticated = true
-
+    // const Stack = createStackNavigator();
     if (!isAuthenticated) {
         return (
             <Tab.Navigator
@@ -42,8 +66,10 @@ const RootComponent = () => {
         )
     }
 
-    return (
+    return <>
+        
         <PaperProvider theme={theme}>
+
             <Tab.Navigator
                 initialRouteName="VehiclesPage"
                 labeled={true}
@@ -94,11 +120,11 @@ const RootComponent = () => {
                 })}
             >
                 <Tab.Screen options={{ tabBarLabel: <Text style={{ fontSize: 15 }}>Rents</Text> }} name="RentsPage" component={RentsPage} />
-                <Tab.Screen options={{ tabBarLabel: <Text style={{ fontSize: 15 }}>Vehicles</Text> }} name="VehiclesPage" component={VehiclesPage} />
-                <Tab.Screen options={{ tabBarLabel: <Text style={{ fontSize: 15 }}>Account</Text> }} name="AccountPage" component={AccountPage} />
+                <Tab.Screen options={{ tabBarLabel: <Text style={{ fontSize: 15 }}>Vehicles</Text> }} name="VehiclesPage" component={CarStack} />
+                <Tab.Screen options={{ tabBarLabel: <Text style={{ fontSize: 15 }}>Account</Text> }} name="AccountPage" component={AccountStack} />
             </Tab.Navigator>
         </PaperProvider>
-    )
+    </>
 }
 
 export default RootComponent

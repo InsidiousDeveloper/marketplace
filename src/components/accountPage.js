@@ -4,13 +4,15 @@ import {
     View,
     Text,
     Image,
-    StyleSheet
+    StyleSheet,
+    TouchableOpacity
 } from 'react-native'
+import { useNavigation } from '@react-navigation/core'
 
 const AccountPage = () => {
 
     const offset = useSharedValue(0)
-
+    const navigation = useNavigation()
     const animatedStyles = useAnimatedStyle(() => {
         return {
             transform: [{ translateX: offset.value * 255 }],
@@ -74,10 +76,14 @@ const AccountPage = () => {
             </View>
             <View style={styles.menuList}>
                 <View style={styles.menuItem}>
-                    <Text style={styles.menuItemText}>Orders</Text>
+                    <TouchableOpacity onPress={() => navigation.navigate("AccountOrders")}>
+                        <Text style={styles.menuItemText}>Orders</Text>
+                    </TouchableOpacity>
                 </View>
                 <View style={styles.menuItem}>
-                    <Text style={styles.menuItemText}>Account information</Text>
+                    <TouchableOpacity onPress={() => navigation.navigate("AccountInformation")}>
+                        <Text style={styles.menuItemText}>Account information</Text>
+                    </TouchableOpacity>
                 </View>
                 <View style={styles.menuItem}>
                     <Text style={styles.menuItemText}>Security and settings</Text>
