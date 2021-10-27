@@ -1,9 +1,10 @@
 import React from 'react'
 import {
     View,
-    ScrollView
+    ScrollView,
+    Text
 } from 'react-native'
-import { CarCard } from './carCard'
+import { Car, CarCard } from './carCard'
 
 const CarsList = () => {
     return (
@@ -15,11 +16,15 @@ const CarsList = () => {
             backgroundColor: '#F9F9FA',
             paddingTop: 20
         }}>
+            <Car />
+            <Car />
+            <Car />
+            <Car />
+            {/* <CarCard />
             <CarCard />
             <CarCard />
             <CarCard />
-            <CarCard />
-            <CarCard />
+            <CarCard /> */}
         </ScrollView>
     )
 }
