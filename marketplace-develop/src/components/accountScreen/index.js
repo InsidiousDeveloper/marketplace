@@ -1,19 +1,16 @@
 import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
-import {
-    Text
-} from 'react-native'
 import AccountPage from './accountPage'
 import AccountOrders from './Orders'
 import AccountInformation from './Information'
 import SecurityAndSettings from './securityAndSettings'
+import HelpPage from './help'
 
 const Stack = createStackNavigator()
 
-const AccountScreen = ({ navigation }) => {
+const AccountScreenStack = ({ }) => {
     return (
         <Stack.Navigator
-            initialRouteName="Account"
             screenOptions={{
                 headerStyle: { backgroundColor: '#EEF2F5' },
                 headerTitleStyle: {
@@ -48,8 +45,15 @@ const AccountScreen = ({ navigation }) => {
                     headerTitle: 'Security & Settings',
                 }}
             />
+            <Stack.Screen
+                name="Help"
+                component={HelpPage}
+                options={{
+                    headerTitle: 'Help',
+                }}
+            />
         </Stack.Navigator>
     )
 }
 
-export default AccountScreen
+export { AccountScreenStack }

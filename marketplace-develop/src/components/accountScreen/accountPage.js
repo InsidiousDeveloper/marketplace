@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import Ionicons from 'react-native-vector-icons/Ionicons'
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import { useIsFocused } from '@react-navigation/native'
 import Animated, { useSharedValue, useAnimatedStyle, withTiming } from 'react-native-reanimated';
 import {
@@ -61,11 +62,13 @@ const AccountPage = ({ navigation }) => {
                         </Text>
                     </View>
                     <View style={styles.personStatus}>
+                        <MaterialCommunityIcons name="crown-outline" size={23} color="blue" />
                         <Text
                             style={{
                                 color: 'blue',
                                 fontWeight: '600',
-                                fontSize: 15
+                                fontSize: 15,
+                                marginLeft: 5
                             }}
                         >
                             Premium member
@@ -93,7 +96,7 @@ const AccountPage = ({ navigation }) => {
                     </TouchableOpacity>
                 </View>
                 <View style={styles.menuItem}>
-                    <TouchableOpacity style={styles.menu}>
+                    <TouchableOpacity style={styles.menu} onPress={() => navigation.navigate("Help")}>
                         <Ionicons name='information-circle-outline' size={25} />
                         <Text style={styles.menuItemText}>Help</Text>
                     </TouchableOpacity>
@@ -128,9 +131,13 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         marginRight: 20
     },
+    personStatus: {
+        flexDirection: 'row',
+        alignItems: 'center'
+    },
     personFullname: {
         flexDirection: 'row',
-        justifyContent: 'flex-start'
+        justifyContent: 'flex-start',
     },
     text: {
         color: '#000',

@@ -7,6 +7,7 @@ import {
 } from 'react-native'
 import { useDispatch, useSelector } from 'react-redux'
 import { localPasscodeToggle } from '../../redux/appReducer'
+import { globalStyles } from '../../styles/style'
 
 const SecurityAndSettings = () => {
 
@@ -16,13 +17,13 @@ const SecurityAndSettings = () => {
     const onToggleSwitch = () => dispatch(localPasscodeToggle());
 
     return (
-        <View style={styles.main}>
+        <View style={globalStyles.main}>
             <View style={styles.container}>
                 <View>
-                    <Text style={styles.blackText}>
+                    <Text style={globalStyles.blackText}>
                         Enable local passcode
                     </Text>
-                    <Text style={styles.blueText}>
+                    <Text style={globalStyles.blueText}>
                         Sets a password while entering the app
                     </Text>
                 </View>
@@ -30,15 +31,15 @@ const SecurityAndSettings = () => {
             </View>
             <View style={styles.container}>
                 <View>
-                    <Text style={styles.blackText}>
+                    <Text style={globalStyles.blackText}>
                         Change local passcode
                     </Text>
                     {
                         isPasscodeEnabled ?
-                            <Text style={styles.blueText}>
+                            <Text style={globalStyles.blueText}>
                                 Tap to change
                             </Text> :
-                            <Text style={styles.grayText}>
+                            <Text style={globalStyles.grayText}>
                                 To change the local passcode, you have to enable it first.
                             </Text>
 
@@ -52,12 +53,6 @@ const SecurityAndSettings = () => {
 export default SecurityAndSettings
 
 const styles = StyleSheet.create({
-    main: {
-        widht: "100%",
-        height: "100%",
-        paddingHorizontal: 15,
-        backgroundColor: "#EEF2F5",
-    },
     container: {
         display: "flex",
         flexDirection: "row",
@@ -66,18 +61,5 @@ const styles = StyleSheet.create({
         paddingVertical: 10,
         paddingHorizontal: 20,
         marginTop: 10,
-    },
-    blackText: {
-        color: "#000",
-        fontSize: 18
-    },
-    blueText: {
-        color: "#0001FC"
-    },
-    grayText: {
-        color: "#888"
-    },
-    buttonText: {
-        color: "#A7A9BE"
     },
 })

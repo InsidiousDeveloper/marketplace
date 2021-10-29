@@ -10,7 +10,7 @@ import {
     Provider as PaperProvider
 } from 'react-native-paper'
 import { useSelector } from 'react-redux'
-import AccountScreen from './components/accountScreen'
+import AccountScreen, { AccountScreenStack } from './components/accountScreen'
 import CarsScreen from './components/carScreen'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 
@@ -110,7 +110,7 @@ const RootComponent = () => {
             >
                 <Tab.Screen name="RentsPage" component={RentsPage} />
                 <Tab.Screen name="VehiclesPage" component={CarsScreen} />
-                <Tab.Screen name="AccountPage" component={AccountScreen} />
+                <Tab.Screen name="AccountPage" component={AccountScreenStack} />
             </Tab.Navigator>
         </PaperProvider>
     </>

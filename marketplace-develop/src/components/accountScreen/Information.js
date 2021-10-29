@@ -1,47 +1,48 @@
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
+import { globalStyles } from '../../styles/style'
 
 const AccountInformation = () => {
-    return <View style={styles.main}>
+    return <View style={globalStyles.main}>
         <View style={styles.container}>
             <View>
-                <Text style={styles.blackText}>UserName</Text>
-                <Text style={styles.blueText}>James Warden</Text>
+                <Text style={globalStyles.blackText}>UserName</Text>
+                <Text style={globalStyles.blueText}>James Warden</Text>
             </View>
             <Text style={styles.buttonText}>Change</Text>
         </View>
         <View style={styles.container}>
             <View>
-                <Text style={styles.blackText}>Email</Text>
-                <Text style={styles.blueText}>j-warden@email.com</Text>
+                <Text style={globalStyles.blackText}>Email</Text>
+                <Text style={globalStyles.blueText}>j-warden@email.com</Text>
             </View>
             <Text style={styles.buttonText}>Change</Text>
         </View>
         <View style={styles.container}>
             <View>
-                <Text style={styles.blackText}>Phone number</Text>
-                <Text style={styles.blueText}>+33 6 16 39 54 78</Text>
+                <Text style={globalStyles.blackText}>Phone number</Text>
+                <Text style={globalStyles.blueText}>+33 6 16 39 54 78</Text>
             </View>
             <Text style={styles.buttonText}>Change</Text>
         </View>
         <View style={styles.container}>
             <View>
-                <Text style={styles.blackText}>Credit card number</Text>
-                <Text style={styles.blueText}>1234 **** **** 0000</Text>
+                <Text style={globalStyles.blackText}>Credit card number</Text>
+                <Text style={globalStyles.blueText}>1234 **** **** 0000</Text>
             </View>
             <Text style={styles.buttonText}>Change</Text>
         </View>
         <View style={styles.container}>
             <View>
-                <Text style={styles.blackText}>Password</Text>
-                <Text style={styles.blueText}>*******************</Text>
+                <Text style={globalStyles.blackText}>Password</Text>
+                <Text style={globalStyles.blueText}>*******************</Text>
             </View>
             <Text style={styles.buttonText}>Change</Text>
         </View>
         <View style={styles.container}>
             <View>
-                <Text style={styles.blackText}>Account type</Text>
-                <Text style={styles.blueText}>Premium</Text>
+                <Text style={globalStyles.blackText}>Account type</Text>
+                <Text style={globalStyles.blueText}>Premium</Text>
             </View>
             <Text style={styles.buttonText}>Change</Text>
         </View>
@@ -53,12 +54,6 @@ export default AccountInformation
 
 
 const styles = StyleSheet.create({
-    main: {
-        widht: "100%",
-        height: "100%",
-        paddingHorizontal: 15,
-        backgroundColor: "#EEF2F5",
-    },
     container: {
         display: "flex",
         flexDirection: "row",
@@ -67,14 +62,6 @@ const styles = StyleSheet.create({
         paddingVertical: 10,
         paddingHorizontal: 20,
         marginTop: 10,
-        borderRadius: 15,
-    },
-    blackText: {
-        color: "#000",
-        fontSize: 18
-    },
-    blueText: {
-        color: "#0001FC"
     },
     buttonText: {
         color: "#A7A9BE"
